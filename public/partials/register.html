@@ -1,0 +1,43 @@
+<div class="col-md-4"></div>
+<div class="col-md-5 text-center">
+    <h3>Create an account</h3>
+    <br>
+    <form class="form jumbotron" ng-submit="register()">
+        <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+        <div class="form-group">
+            <label class="control-label">First name</label>
+            <input type="text" class="form-control" ng-model="registerForm.firstname" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Last name</label>
+            <input type="text" class="form-control" ng-model="registerForm.lastname" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            <input type="email" class="form-control" ng-model="registerForm.email" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Choose Password</label>
+            <input type="password" class="form-control" ng-model="registerForm.password" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Choose security Question</label>
+            <select ng-model="registerForm.question" class="form-control">
+                <option value="What is your mother's maiden name">What is your mother's maiden name</option>
+                <option value="Which is your favorite sport">Which is your favorite sport</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Answer</label>
+            <input type="password" class="form-control" ng-model="registerForm.answer" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Organization</label>
+            <input type="text" class="form-control" ng-model="registerForm.organization" required>
+        </div>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-info" ng-disabled="disabled">Register</button>
+        </div>
+    </form>
+</div>

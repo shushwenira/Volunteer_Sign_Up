@@ -1,0 +1,50 @@
+<div ng-if="notFound" class="alert alert-danger text-center">
+    <h2>Arg! That signup sheet could not be found!</h2>
+    <h5>The link you clicked on doesn't point to a real volunteer signup sheet.</h5>
+    <h5>Please check that you copied the link correctly. Ask the person you got it from to check that they have the correct link.</h5>
+    <h5>If you don't have a real link and you just made one up, you could instead create a real link by <a ui-sref="home.register">creating an account</a>  with Volunteer Signup and creating a signup sheet for your volunteers.</h5>
+</div>
+<div class="row text-center" ng-show="!notFound">
+    <div class="col-md-12">
+        <h2>Thank you for helping out!</h2>
+        <br>
+        <p>This confirms that you've signed up for the following</p>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="jumbotron text-left col-md-8">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Event</th>
+                    <td>{{event.title}}</td>
+                </tr>
+                <tr>
+                    <th>Task</th>
+                    <td>{{task.name}}</td>
+                </tr>
+                <tr ng-if="task.when">
+                    <th>When</th>
+                    <td> {{task.when}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">If you need to cancel your signup, you should contact the signup sheet manager directly. Their details are:</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td> {{event.owner}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12">
+        <p>We've also emailed you a copy of these details. The email will come from "DoNotReply.VolunteerSignUp@gmail.com".</p>
+        <br>
+        <p>
+            Register to create your own free signup sheet here: <a href='http://localhost:3000/#/VolunteerSignUp/register'>VolunteerSignUp/register</a>
+        </p>
+        <br>
+        <p>
+            <button class="btn btn-default" ui-sref="home.signupSheet({id: event._id})">Go Back</button>
+        </p>
+    </div>
+</div>

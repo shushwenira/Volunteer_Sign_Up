@@ -1,0 +1,201 @@
+body {
+    font: 14px Montserrat, Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #1fa4b6;
+    cursor: pointer;
+}
+
+a:focus,
+a:active,
+a:hover {
+    outline: none!important;
+    text-decoration: none!important;
+}
+
+.blurr {
+    opacity: 0.7;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.jumbotron {
+    background-color: #819b9f24;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.create-btn {
+    padding: 10px;
+}
+
+.block-ui-message {
+    color: black;
+    padding: 0;
+    background-color: transparent;
+    opacity: 0.7;
+}
+
+.block-ui-overlay {
+    opacity: 0.7;
+}
+
+.modal-dialog {
+    margin: 0;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%)!important;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    text-align: center;
+}
+
+.modal-header {
+    background-color: #10474f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+}
+
+tr.deactivated td,
+tr.deactivated td a {
+    color: #9f9898;
+}
+
+.navbar-default,
+.navbar-default .navbar-brand {
+    background-color: #10474f;
+    color: white;
+}
+
+.navbar-default {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 35px;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-brand:focus {
+    color: white;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    color: white;
+    background-color: #1fa4b6;
+    border-radius: 4px;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    color: #1fa4b6;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.btn-primary,
+.btn-info.active.focus,
+.btn-info.active:focus,
+.btn-info.active:hover,
+.btn-info:active.focus,
+.btn-info:active:focus,
+.btn-info:active:hover,
+.btn-info {
+    background-color: #1fa4b6 !important;
+    border-color: #1fa4b6 !important;
+}
+
+.create-table.table>tbody>tr>td {
+    padding: 0;
+}
+
+.create-table .actions {
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.create-table .actions span {
+    margin-left: 6px;
+    margin-top: 4px;
+}
+
+.create-table.table>thead>tr>th,
+.create-table.table>tbody>tr>td {
+    border: none;
+}
+
+.create-table.table>tbody>tr>td>input {
+    padding: 6px;
+}
+
+.events-table.table>tbody>tr>td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.signup-table.table>tbody>tr>td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    vertical-align: middle;
+}
+
+.text-project {
+    color: #1fa4b6;
+}
+
+.panel-default>.panel-heading {
+    background-color: #819b9f24;
+    height: 36px;
+}
+
+.panel-title{
+    font-size: 15px;
+}
+
+.signup-icon {
+    font-size: 18px;
+}
+
+.list-group-item-info {
+    background-color: #edf1f1;
+    border: none;
+}
+
+.list-group{
+    margin-bottom: 0
+}
+
+.volunteer_img{
+    height: 200px;
+}
+
+.welcome-create-btn{
+    height: 45px;
+    position: absolute;
+    top: -106px;
+    left: 276px;
+}
+
+.welcome{
+    padding-top: 20px;
+}

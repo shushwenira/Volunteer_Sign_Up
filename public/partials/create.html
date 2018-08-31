@@ -1,0 +1,51 @@
+<div>
+    <div class="text-center form-group">
+        <h3>Create Signup Sheet for an event</h3>
+    </div>
+    <br>
+    <div class="jumbotron">
+        <div ng-show="error" class="alert alert-danger">{{error}}</div>
+        <form class="form" ng-submit="create()">
+            <div class="form-group">
+                <label>Event Title</label>
+                <input type="text" class="form-control" name="title" ng-model="event.title" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" name="description" ng-model="event.description" required></textarea>
+            </div>
+            <div class="form-group">
+                <table class="table create-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40%">Task</th>
+                            <th style="width: 40%">When <small>(optional)</small></th>
+                            <th style="width: 15%">People Needed</th>
+                            <th style="width: 5%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="task in event.what">
+                            <td>
+                                <input type="text" ng-model="task.name" required class="form-control">
+                            </td>
+                            <td>
+                                <input type="text" ng-model="task.when" class="form-control">
+                            </td>
+                            <td>
+                                <input type="number" ng-model="task.people_needed" min="1" required class="form-control">
+                            </td>
+                            <td class="actions">
+                                <span class="glyphicon glyphicon-plus-sign text-success pointer" ng-click="addTask($index)"></span>
+                                <span class="glyphicon glyphicon-minus-sign text-danger pointer" ng-hide="event.what.length == 1" ng-click="deleteTask($index)"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-info" ng-disabled="disabled">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

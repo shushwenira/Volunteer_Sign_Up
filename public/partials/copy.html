@@ -1,0 +1,26 @@
+<div class="text-center">
+    <div class="modal-header" ng-if="!copied">
+        <h4>Create a copy of {{event.title}}</h4>
+    </div>
+    <div class="modal-body">
+        <div ng-if="!copied">
+            <h5>All tasks, times, description, etc will be duplicated into a new sheet with a new name. Volunteers will not be copied.</h5>
+            <div ng-show="error" class="alert alert-danger">{{error}}</div>
+            <form class="form row">
+                <div class="form-group  ">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" ng-model="newEvent.title" required placeholder="New Sheet Name">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div ng-if="copied">
+            <h4>Event copied successfully</h4>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info" ng-if="!copied" ng-click="copy()">Copy</button>
+        <button class="btn btn-default" ng-click="close()">Close</button>
+    </div>
+</div>

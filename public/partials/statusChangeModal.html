@@ -1,0 +1,15 @@
+<div class="modal-body">
+    <div ng-if="!deactivated">
+        <div>ATTENTION! You are about to cancel an event named "{{event.title}}".</div>
+        <div>Cancelling an event will prevent new signups on that sheet.</div>
+        <div>Volunteers already signed up for this event will be notified about this cancellation via email.</div>
+    </div>
+    <div ng-if="deactivated">
+        Event cancelled successfully. Signed up volunteers notified via email.
+    </div>
+</div>
+<div class="modal-footer">
+    <button ng-if="!deactivated" class="btn btn-danger" ng-click="confirmDeactivation()">Confirm Cancellation</button>
+    <button ng-if="!deactivated" class="btn btn-default" ng-click="close()">Cancel</button>
+    <button ng-if="deactivated" class="btn btn-default" ng-click="close()">Ok</button>
+</div>

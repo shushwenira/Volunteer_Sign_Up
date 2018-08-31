@@ -1,0 +1,68 @@
+<div ng-if="notFound" class="alert alert-danger text-center">
+    <h2>Arg! That signup sheet could not be found!</h2>
+    <h5>The link you clicked on doesn't point to a real volunteer signup sheet.</h5>
+    <h5>Please check that you copied the link correctly. Ask the person you got it from to check that they have the correct link.</h5>
+    <h5>If you don't have a real link and you just made one up, you could instead create a real link by <a ui-sref="home.register">creating an account</a>  with Volunteer Signup and creating a signup sheet for your volunteers.</h5>
+</div>
+<div ng-show="!notFound">
+    <div ng-if="deactivated" class="alert alert-danger text-center">
+        <h5 class="text-danger">The signup sheet for this task is no longer active and is not accepting new volunteers. Please contact the event manager for further details.</h5>
+        <h5 class="text-danger">If you're seeing this message but weren't expecting it, please verify that you've clicked on the correct task link.</h5>
+    </div>
+    <div ng-if="event_full" class="alert alert-danger text-center">
+        <h5>Sorry, this task is already full</h5>
+        <h5>While you were filling in the signup page, someone else already signed up for it.</h5>
+        <h5>You can return to the <a ui-sref="home.signupSheet({id: event._id})">event page</a> to select a different task to sign up for.</h5>
+    </div>
+    <div class="text-center">
+        <h3>{{task.name}}</h3>
+        <div class="form-group">
+            <span class="glyphicon glyphicon-flag" aria-hidden="true"></span> {{event.title}}
+        </div>
+        <div ng-if="task.when" class="form-group">
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{task.when}}
+        </div>
+        <div ng-if="task.people_signedup.length > 0" class="form-group">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <span ng-repeat="person in task.people_signedup">
+            <span>{{person.firstname}}</span>&nbsp;<span>{{person.lastname}}</span>
+            <span ng-show="$index < task.people_signedup.length - 1">,</span>
+            </span>
+        </div>
+        <h5>Fill the following form to sign up for this task</h5>
+        <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 jumbotron text-center">
+        <form class="form" ng-submit="signUp()">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" name="firstname" ng-model="volunteer.firstname" required>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" name="lastname" ng-model="volunteer.lastname" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" ng-model="volunteer.email" required>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" pattern="^\d{10,10}" title="Must contain only 10 digits" name="phone" ng-model="volunteer.phone" required>
+            </div>
+            <div class="form-group">
+                <small>
+                    A shortened version of your name (John D) will show up on the public signup sheet. Your last name and email are kept private.
+                </small>
+            </div>
+            <br>
+            <div>
+                <button type="submit" class="btn btn-info pull-left" ng-disabled="event_full || deactivated">Sign Up</button>
+                <button class="btn btn-default pull-right" ui-sref="home.signupSheet({id: event._id})">Go Back</button>
+            </div>
+            
+        </form>
+    </div>
+</div>

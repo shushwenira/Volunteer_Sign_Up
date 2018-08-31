@@ -1,0 +1,56 @@
+<div ng-if="notFound" class="alert alert-danger text-center">
+    <h2>Arg! That signup sheet could not be found!</h2>
+    <h5>The link you clicked on doesn't point to a real volunteer signup sheet.</h5>
+    <h5>Please check that you copied the link correctly. Ask the person you got it from to check that they have the correct link.</h5>
+    <h5>If you don't have a real link and you just made one up, you could instead create a real link by <a ui-sref="home.register">creating an account</a>  with Volunteer Signup and creating a signup sheet for your volunteers.</h5>
+</div>
+<div ng-show="!notFound">
+    <div ng-if="deactivated" class="alert text-center alert-danger">
+        <h5 class="text-danger">This signup sheet is no longer active and is not accepting new volunteers. Please contact the event manager for further details.</h5>
+        <h5 class="text-danger">If you're seeing this message but weren't expecting it, please verify that you've clicked on the correct sign-up sheet link.</h5>
+    </div>
+    <div class="text-center">
+        <h3>Signup sheet for {{event.title}} </h3>
+        <h5>{{event.description}}</h5>
+        <br>
+    </div>
+    <div class="jumbotron">
+        <table class="table signup-table">
+            <thead>
+                <tr>
+                    <th style="width: 70%">Task, Timing and Volunteers</th>
+                    <th style="width: 15%" class="text-center">Vacancy</th>
+                    <th style="width: 15%" class="text-center">Signup</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in event.what">
+                    <td>
+                        <div>{{task.name}}</div>
+                        <div ng-if="task.when">
+                            <small>
+                                <span class="glyphicon glyphicon-time" style="color: black"></span>
+                                {{task.when}}
+                            </small>
+                        </div>
+                        <div ng-if="task.people_signedup.length > 0">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <small ng-repeat="person in task.people_signedup">
+                                <span>{{person.firstname}}</span>&nbsp;<span>{{person.lastname}}</span>
+                                <span ng-show="$index < task.people_signedup.length - 1">,</span>
+                            </small>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <span ng-if="task.people_needed > task.people_signedup.length">{{task.people_needed - task.people_signedup.length}}</span>
+                        <span ng-if="task.people_needed == task.people_signedup.length">None</span>
+                    </td>
+                    <td class="actions text-center">
+                        <span class="glyphicon glyphicon-arrow-right text-project signup-icon pointer" ng-click="signUp($index)" ng-if="task.people_needed > task.people_signedup.length && !deactivated"></span>
+                        <span style="color: #bbb" class="glyphicon glyphicon-ban-circle" ng-if="task.people_needed == task.people_signedup.length || deactivated"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

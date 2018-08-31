@@ -1,0 +1,47 @@
+<div class="col-md-4"></div>
+<div class="col-md-5 text-center" ng-show="!isAuthenticated">
+    <h3>Validate user</h3>
+    <br>
+    <form class="form jumbotron" ng-submit="authenticate()">
+        <div ng-show="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            <input type="email" class="form-control" ng-model="user.username" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Choose security Question</label>
+            <select ng-model="user.question" class="form-control">
+                <option value="What is your mother's maiden name">What is your mother's maiden name</option>
+                <option value="Which is your favorite sport">Which is your favorite sport</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Answer</label>
+            <input type="password" class="form-control" ng-model="user.answer" required>
+        </div>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-info" ng-disabled="disabled">Authenticate</button>
+        </div>
+    </form>
+</div>
+
+<div class="col-md-5 text-center" ng-show="isAuthenticated">
+    <h3>Set Password</h3>
+    <br>
+    <form class="form jumbotron" ng-submit="setPassword()">
+        <div ng-show="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            <input type="email" class="form-control" ng-model="user.username" required ng-readonly="user">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Choose Password</label>
+            <input type="password" class="form-control" ng-model="user.password" required>
+        </div>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-info" ng-disabled="disabled">Set Password</button>
+        </div>
+    </form>
+</div>

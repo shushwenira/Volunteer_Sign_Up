@@ -1,0 +1,48 @@
+<div class="text-center form-group">
+    <h3>Event details for {{event.title}}</h3>
+</div>
+<br>
+<div class="form-group">
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" ng-repeat="task in event.what" ng-init="status.open = $first" is-open="status.open">
+            <uib-accordion-heading >
+                <div class="col-md-6">
+                    <label>Task:</label> {{task.name}}</div>
+                <div class="col-md-6" ng-if="task.when">
+                    <label>When:</label> {{task.when}}</div>
+            </uib-accordion-heading>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Volunteer Name</th>
+                        <th style="width: 30%">Email</th>
+                        <th style="width: 20%">Phone</th>
+                        <th style="width: 20%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="index in range(task.people_needed) track by $index">
+                        <td ng-if="!task.people_signedup[$index].email" colspan="4" class="blurr text-center">
+                            Vacant Slot
+                        </td>
+                        <td ng-if="task.people_signedup[$index].email">
+                            {{task.people_signedup[$index].firstname}}&nbsp;{{task.people_signedup[$index].lastname}}
+                        </td>
+                        <td ng-if="task.people_signedup[$index].email">
+                            {{task.people_signedup[$index].email}}
+                        </td>
+                        <td ng-if="task.people_signedup[$index].email">
+                            {{task.people_signedup[$index].phone}}
+                        </td>
+                        <td ng-if="task.people_signedup[$index].email">
+                            <a ng-show="task.people_signedup[$index].firstname" ng-click="clearSlot($parent.$parent.$index,$parent.$index)">Clear Slot</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </uib-accordion>
+</div>
+<div class="form-group text-center">
+    <button class="btn btn-info" ng-click="download()"> Download as CSV</button>
+</div>

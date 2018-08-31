@@ -1,0 +1,27 @@
+doctype html
+html(ng-app='VolunteerSignUp', lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.3/angular-ui-router.min.js')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-animate.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/angular-block-ui/0.2.2/angular-block-ui.min.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-block-ui/0.2.2/angular-block-ui.min.js')
+
+    script(src='/javascripts/main.js')
+    script(src='/javascripts/services.js')
+    script(src='/javascripts/controllers.js')
+    
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    
+  body
+    block content
