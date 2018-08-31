@@ -1,0 +1,45 @@
+Database Design
+
+The Database has been implemented using MongoDB. The Database has two collections:
+
+1. Users - contains the registered user details.
+
+User Model:
+
+	User = {
+		firstname: String,
+		lastname: String,
+		organization: String,
+		username: String,
+		password: String
+	}
+
+	User.index({username: 1}, {unique: true});
+
+2. Events - contains the events/sheets created by the user.
+
+Event Model:
+
+	People = {
+		firstname: String,
+		lastname: String,
+		email: String,
+		phone: Number
+	}
+	
+	What = {
+		name: String,
+		when: String,
+		people_needed: Number,
+		people_signedup: [People]
+	}
+	
+	Event = {
+		title: String,
+		owner: String,
+		description: String,
+		isDeactivated: Boolean,
+		what: [What]
+	}
+	
+	Event.index({title: 1, owner: 1}, {unique: true});
